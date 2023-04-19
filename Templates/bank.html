@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Chatbot</title>
+</head>
+<body>
+    <h1>How can I help you</h1>
+    <form method="POST" action="/predict">
+        <label for="question">Ask a question:</label><br>
+        <input type="text" id="question" name="question" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br>
+    <div id="answer"></div>
+    <div id="predicted_class"></div>
+</body>
+</html>
