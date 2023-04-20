@@ -45,6 +45,24 @@ def get_answer(question):
     response = f"Answer: {answer}"
     
     return response
+import streamlit as st
+import subprocess
+
+def run_flask_app():
+    # Run the Flask app in a separate process using subprocess
+    flask_app_process = subprocess.Popen(["python", "app.py"], stdout=subprocess.PIPE)
+
+    # Capture the output of the Flask app
+    flask_output = flask_app_process.communicate()[0]
+
+    return flask_output
+
+# Create a placeholder where the output of the Flask app will be displayed
+output_placeholder = st.empty()
+
+# Run the Flask app and display the output in the placeholder
+flask_output = run_flask_app()
+output_placeholder.write(flask_output.decode())
 
 # Create a streamlit app
 def app():
